@@ -14,6 +14,7 @@ public class Course {
 	private List<Class> m_classes;
 	
 	public Course(String name, int priority, List<Class> classes) {
+		m_name = name;
 		m_priority = priority;
 		m_classes = classes;
 	}
@@ -52,6 +53,19 @@ public class Course {
 	
 	public void addClasses(List<Class> c) {
 		m_classes.addAll(c);
+	}
+	
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder(100);
+		String lf = System.getProperty("line.separator");
+		sb.append("Course: " + m_name);
+		sb.append(", priority: " + m_priority);
+		sb.append(lf);
+		for(Class c : m_classes) {
+			sb.append(c).append(lf);
+		}
+		return sb.toString();
 	}
 
 }

@@ -1,5 +1,6 @@
 package com.doge.planning;
 
+import java.io.File;
 import java.util.List;
 
 /**
@@ -29,7 +30,7 @@ public class Planner {
 	 * Method calculating overlap among the two classes
 	 * @param c1 First class
 	 * @param c2 Second class
-	 * @return Overlap in seconds
+	 * @return Overlap in minutes
 	 */
 	public static int getOverlap(Class c1, Class c2) {
 		// Swap the classes to get rid of many unneccesary conditions
@@ -52,13 +53,15 @@ public class Planner {
 	
     public static void main(String[] args) {
         System.out.println("such plan. wow. very make. such progress. much soon.");
-        /*try { 
-        	m_courses = Reader.readCourses();
+        try { 
+        	m_courses = PlanReader.readFile("testInput.in");
         }
         catch (Exception e) {
         	e.printStackTrace();
         }
+        System.out.println(m_courses.get(0).toString());
+        System.out.println(m_courses.get(1).toString());
         m_plan = getOptimalPlan(m_courses);
-        m_plan.printClasses();*/
+        //m_plan.printClasses();
     }
 }

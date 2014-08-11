@@ -2,12 +2,12 @@ package com.doge.planning;
 
 /**
  * Custom project class representing a day in the week, hour and minute
- * Class is only package specific
+ * Does not consider overlapping weeks as only sleeping happens during Sun-Mon night
  * Seconds are omitted because preciseness is not needed
  * All the fields are final, they are not supposed to change
  * @author salmelu
  */
-class WeekTime {
+public class WeekTime {
 
 	/**
 	 * Enum used for the days of the week
@@ -15,27 +15,42 @@ class WeekTime {
 	 * @author salmelu
 	 */
 	protected enum DayOfWeek {
-		MONDAY("Monday", 1),
-		TUESDAY("Tuesday", 2),
-		WEDNESDAY("Wednesday", 3),
-		THURSDAY("Thursday", 4),
-		FRIDAY("Friday", 5),
-		SATURDAY("Saturday", 6),
-		SUNDAY("Sunday", 7);
-		
+		MONDAY("Monday", "Mon", 1),
+		TUESDAY("Tuesday","Tue", 2),
+		WEDNESDAY("Wednesday","Wed", 3),
+		THURSDAY("Thursday","Thu", 4),
+		FRIDAY("Friday","Fri", 5),
+		SATURDAY("Saturday","Sat", 6),
+		SUNDAY("Sunday", "Sun", 7);
+
 		private final String m_displayName;
+		private final String m_shortName;
 		private final int m_order;
 		
-		DayOfWeek(String displayName, int order) {
+		DayOfWeek(String displayName, String shortName, int order) {
 			m_displayName = displayName;
+			m_shortName = shortName;
 			m_order = order;
 		}
-		
+
 		@Override
 		public String toString() {
 			return m_displayName;
 		}
 		
+		/**
+		 * Displays shortened name, like Wed for Wednesday
+		 * @return shortened day name
+		 */
+		public String toShortString() {
+			return m_shortName;
+		}
+		
+		/**
+		 * Gives order of the day in the week, starting from 1 for Monday to 7 for Sunday
+		 * Used for comparing which day comes sooner
+		 * @return order of the day in the week
+		 */
 		public int getOrder() {
 			return m_order;
 		}
@@ -103,7 +118,13 @@ class WeekTime {
 	
 	@Override
 	public String toString() {
-		return m_day.toString() + " - " + String.valueOf(m_hour) + ":" + String.valueOf(m_minute); 
+		StringBuilder sb = new StringBuilder(40);
+		sb.append(m_day.toShortString()).append(", ").append(m_hour).append(":");
+		if(m_minute < 10) {
+			sb.append("0");
+		}
+		sb.append(m_minute);
+		return sb.toString();
 	}
 	
 	public DayOfWeek getDay() {
@@ -125,7 +146,7 @@ class WeekTime {
 	 * @return number of minutes between start and end
 	 */
 	public static int getLength(WeekTime start, WeekTime end) {
-		int minutes = (start.m_day.getOrder() - end.m_day.getOrder()) * 24 * 60;
+		int minutes = (end.m_day.getOrder() - start.m_day.getOrder()) * 24 * 60;
 		
 		if(start.m_hour > end.m_hour) {
 			minutes -= (start.m_hour - end.m_hour) * 60;

@@ -66,7 +66,7 @@ public class Class {
 
 	@Override
 	public String toString() {
-		StringBuilder sb = new StringBuilder();
+		StringBuilder sb = new StringBuilder(50);
 		sb.append(m_course.getName());
 		sb.append(": ");
 		sb.append(m_start.toString());
