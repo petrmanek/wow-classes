@@ -79,7 +79,7 @@ public class PlanReader {
 				try {
 					WeekTime start = new WeekTime(parsed[0], Integer.parseInt(parsed[1]), Integer.parseInt(parsed[2]));
 					WeekTime end = new WeekTime(parsed[3], Integer.parseInt(parsed[4]), Integer.parseInt(parsed[5]));
-					tmpCourse.addClass(new Class(start, end, tmpCourse));
+					tmpCourse.addClass(new Lesson(start, end, tmpCourse));
 				}
 				catch (Exception e) {
 					sc.close();

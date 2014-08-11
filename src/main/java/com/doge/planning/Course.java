@@ -11,16 +11,16 @@ public class Course {
 
 	private String m_name;
 	private int m_priority;
-	private List<Class> m_classes;
+	private List<Lesson> m_lessons;
 	
-	public Course(String name, int priority, List<Class> classes) {
+	public Course(String name, int priority, List<Lesson> classes) {
 		m_name = name;
 		m_priority = priority;
-		m_classes = classes;
+		m_lessons = classes;
 	}
 	
 	public Course(String name, int priority) {
-		this(name, priority, new ArrayList<>());	
+		this(name, priority, new ArrayList<Lesson>());
 	}
 	
 	public String getName() {
@@ -39,20 +39,20 @@ public class Course {
 		m_priority = priority;
 	}
 	
-	public List<Class> getClasses() {
-		return m_classes;
+	public List<Lesson> getClasses() {
+		return m_lessons;
 	}
 	
-	public void setClasses(List<Class> classes) {
-		m_classes = classes;
+	public void setClasses(List<Lesson> lessons) {
+		m_lessons = lessons;
 	}
 	
-	public void addClass(Class c) {
-		m_classes.add(c);
+	public void addClass(Lesson c) {
+		m_lessons.add(c);
 	}
 	
-	public void addClasses(List<Class> c) {
-		m_classes.addAll(c);
+	public void addClasses(List<Lesson> c) {
+		m_lessons.addAll(c);
 	}
 	
 	@Override
@@ -62,7 +62,7 @@ public class Course {
 		sb.append("Course: " + m_name);
 		sb.append(", priority: " + m_priority);
 		sb.append(lf);
-		for(Class c : m_classes) {
+		for(Lesson c : m_lessons) {
 			sb.append(c).append(lf);
 		}
 		return sb.toString();

@@ -4,19 +4,19 @@ package com.doge.planning;
  * Represents each class
  * @author salmelu
  */
-public class Class {
+public class Lesson {
 
 	private WeekTime m_start;
 	private WeekTime m_end;
 	private Course m_course;
 	
 	/**
-	 * Constructor of the Class
+	 * Constructor of the Lesson
 	 * @param start Starting time of the class
 	 * @param end Ending time of the class
 	 * @param course Course which this class applies to
 	 */
-	public Class(WeekTime start, WeekTime end, Course course) {
+	public Lesson(WeekTime start, WeekTime end, Course course) {
 		m_start = start;
 		m_end = end;
 		m_course = course;
@@ -75,4 +75,7 @@ public class Class {
 		return sb.toString();
 	}
 
+    public int getDuration() {
+        return WeekTime.getLength(m_start, m_end);
+    }
 }

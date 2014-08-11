@@ -1,6 +1,5 @@
 package com.doge.planning;
 
-import java.io.File;
 import java.util.List;
 
 /**
@@ -32,10 +31,10 @@ public class Planner {
 	 * @param c2 Second class
 	 * @return Overlap in minutes
 	 */
-	public static int getOverlap(Class c1, Class c2) {
+	public static int getOverlap(Lesson c1, Lesson c2) {
 		// Swap the classes to get rid of many unneccesary conditions
 		if(c2.getStart().isSooner(c1.getStart())) {
-			Class tmp = c1;
+			Lesson tmp = c1;
 			c1 = c2;
 			c2 = tmp;
 		}

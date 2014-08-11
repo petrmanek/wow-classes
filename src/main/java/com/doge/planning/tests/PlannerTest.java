@@ -155,11 +155,11 @@ public class PlannerTest {
 	@Test
 	public void testGetOverlap() {
 		class Tclass {
-			com.doge.planning.Class c1;
-			com.doge.planning.Class c2;
+			Lesson c1;
+			Lesson c2;
 			int result;
 			
-			Tclass(com.doge.planning.Class c1, com.doge.planning.Class c2, int result) {
+			Tclass(Lesson c1, Lesson c2, int result) {
 				this.c1 = c1;
 				this.c2 = c2;
 				this.result = result;
@@ -172,20 +172,20 @@ public class PlannerTest {
 		 */
 		try {
 			Tclass[] tests = {
-					new Tclass(new com.doge.planning.Class(new WeekTime("Wed", 10, 00), new WeekTime("Wed", 12, 00), new Course("Hah", 10)),
-							new com.doge.planning.Class(new WeekTime("Wed", 14, 00), new WeekTime("Wed", 16, 00), new Course("Hih", 8)),
+					new Tclass(new Lesson(new WeekTime("Wed", 10, 00), new WeekTime("Wed", 12, 00), new Course("Hah", 10)),
+							new Lesson(new WeekTime("Wed", 14, 00), new WeekTime("Wed", 16, 00), new Course("Hih", 8)),
 							0),
-					new Tclass(new com.doge.planning.Class(new WeekTime("Fri", 10, 30), new WeekTime("Fri", 18, 20), new Course("Hah", 10)),
-							new com.doge.planning.Class(new WeekTime("Fri", 14, 00), new WeekTime("Fri", 15, 45), new Course("Hih", 9)),
+					new Tclass(new Lesson(new WeekTime("Fri", 10, 30), new WeekTime("Fri", 18, 20), new Course("Hah", 10)),
+							new Lesson(new WeekTime("Fri", 14, 00), new WeekTime("Fri", 15, 45), new Course("Hih", 9)),
 							105),
-					new Tclass(new com.doge.planning.Class(new WeekTime("Tue", 9, 00), new WeekTime("Tue", 12, 10), new Course("Heh", 10)),
-							new com.doge.planning.Class(new WeekTime("Tue", 10, 40), new WeekTime("Tue", 13, 50), new Course("Huh", 9)),
+					new Tclass(new Lesson(new WeekTime("Tue", 9, 00), new WeekTime("Tue", 12, 10), new Course("Heh", 10)),
+							new Lesson(new WeekTime("Tue", 10, 40), new WeekTime("Tue", 13, 50), new Course("Huh", 9)),
 							90),
-					new Tclass(new com.doge.planning.Class(new WeekTime("Tue", 9, 00), new WeekTime("Tue", 12, 10), new Course("Heh", 10)),
-							new com.doge.planning.Class(new WeekTime("Tue", 10, 40), new WeekTime("Tue", 12, 10), new Course("Huh", 9)),
+					new Tclass(new Lesson(new WeekTime("Tue", 9, 00), new WeekTime("Tue", 12, 10), new Course("Heh", 10)),
+							new Lesson(new WeekTime("Tue", 10, 40), new WeekTime("Tue", 12, 10), new Course("Huh", 9)),
 							90),
-					new Tclass(new com.doge.planning.Class(new WeekTime("Fri", 10, 40), new WeekTime("Fri", 13, 50), new Course("Huh", 9)),
-							new com.doge.planning.Class(new WeekTime("Fri", 9, 00), new WeekTime("Fri", 12, 10), new Course("Heh", 10)),
+					new Tclass(new Lesson(new WeekTime("Fri", 10, 40), new WeekTime("Fri", 13, 50), new Course("Huh", 9)),
+							new Lesson(new WeekTime("Fri", 9, 00), new WeekTime("Fri", 12, 10), new Course("Heh", 10)),
 							90),	
 			};
 			

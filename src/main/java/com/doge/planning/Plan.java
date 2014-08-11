@@ -9,28 +9,52 @@ import java.util.List;
  */
 public class Plan {
 
-	private List<Class> m_classes;
+	private List<Lesson> m_lessons;
 	
 	public Plan() {
-		m_classes = new LinkedList<>();
+		m_lessons = new LinkedList<>();
 	}
 	
-	public Plan(List<Class> classes) {
-		m_classes = classes;
+	public Plan(List<Lesson> lessons) {
+		m_lessons = lessons;
 	}
 	
-	public void addClass(Class c) {
-		m_classes.add(c);
+	public void addLesson(Lesson c) {
+		m_lessons.add(c);
 	}
 	
-	public List<Class> getClasses() {
-		return m_classes;
+	public List<Lesson> getLessons() {
+		return m_lessons;
 	}
  	
 	public void printClasses() {
-		for(Class c : m_classes) {
-			System.out.println(c.toString());
+		for(Lesson l : m_lessons) {
+			System.out.println(l.toString());
 		}
 	}
+
+    public int computeOverlap() {
+        int overlap = 0;
+
+        for (Lesson k : m_lessons) {
+            for (Lesson l : m_lessons) {
+                if (k.equals(l)) continue;
+
+                overlap += Planner.getOverlap(k, l) * k.getCourse().getPriority();
+            };
+        }
+
+        return overlap;
+    }
+
+    public int computeEfficiency() {
+        int sum = 0;
+
+        for (Lesson l : m_lessons) {
+            sum += l.getDuration() * l.getCourse().getPriority();
+        }
+
+        return sum - computeOverlap();
+    }
 
 }
