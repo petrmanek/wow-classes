@@ -3,8 +3,6 @@ package com.doge.planning;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.doge.planning.Class;
-
 /**
  * Represents each course and holds its classes
  * @author salmelu

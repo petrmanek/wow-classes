@@ -1,8 +1,5 @@
 package com.doge.planning;
 
-import com.doge.planning.Course;
-import com.doge.planning.WeekTime;
-
 /**
  * Represents each class
  * @author salmelu
@@ -25,6 +22,48 @@ public class Class {
 		m_course = course;
 	}
 	
+	/**
+	 * @return the m_start
+	 */
+	public WeekTime getStart() {
+		return m_start;
+	}
+
+	/**
+	 * @param m_start the m_start to set
+	 */
+	public void setStart(WeekTime start) {
+		m_start = start;
+	}
+
+	/**
+	 * @return the m_end
+	 */
+	public WeekTime getEnd() {
+		return m_end;
+	}
+
+	/**
+	 * @param m_end the m_end to set
+	 */
+	public void setEnd(WeekTime end) {
+		m_end = end;
+	}
+
+	/**
+	 * @return the m_course
+	 */
+	public Course getCourse() {
+		return m_course;
+	}
+
+	/**
+	 * @param m_course the m_course to set
+	 */
+	public void setCourse(Course course) {
+		m_course = course;
+	}
+
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
