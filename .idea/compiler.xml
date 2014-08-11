@@ -25,6 +25,9 @@
         <module name="wow-classes" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="wow-classes" target="1.7" />
+    </bytecodeTargetLevel>
   </component>
 </project>
 
