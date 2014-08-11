@@ -1,6 +1,5 @@
 package com.doge.planning;
 
-import java.io.File;
 import java.util.List;
 
 /**
@@ -50,7 +49,7 @@ public class Planner {
 			return WeekTime.getLength(c2.getStart(), c1.getEnd());
 		}
 	}
-	
+
     public static void main(String[] args) {
         System.out.println("such plan. wow. very make. such progress. much soon.");
         try { 
